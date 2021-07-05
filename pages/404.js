@@ -13,7 +13,7 @@ export default function Custom404({ }) {
         frameBorder="0"
         allowFullScreen
       ></iframe>
-      <Link href="/">
+      <Link href="/" passHref>
           <button className="btn-blue">Go Home</button>
       </Link>
     </main>

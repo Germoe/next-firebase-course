@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useUserData } from "../lib/hooks";
 
 export default function NavBar() {
@@ -10,7 +11,7 @@ export default function NavBar() {
             <ul>
                 {/* Shown to all Users */}
                 <li>
-                    <Link href="/">
+                    <Link href="/" passHref>
                         <button className="btn-logo">FEED</button>
                     </Link>
                 </li>
@@ -19,13 +20,13 @@ export default function NavBar() {
                 {(user && username)  && (
                     <>
                         <li className="push-left">
-                            <Link href="/admin">
+                            <Link href="/admin" passHref>
                                 <button className="btn-blue">Write Posts</button>
                             </Link>
                         </li>
                         <li>
-                            <Link href={`/${username}`}>
-                                <img src={user?.photoURL} />
+                            <Link href={`/${username}`} passHref>
+                                <Image src={user?.photoURL} alt="Profit Photo" />
                             </Link>
                         </li>
                     </>
@@ -34,7 +35,7 @@ export default function NavBar() {
                 {/* User is not signed in OR has not create username */}
                 {!(user && username) && (
                     <li>
-                        <Link href="/enter">
+                        <Link href="/enter" passHref>
                             <button className="btn-blue">Log in</button>
                         </Link>
                     </li>

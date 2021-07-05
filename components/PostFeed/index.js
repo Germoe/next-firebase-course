@@ -17,7 +17,7 @@ function PostItem({ post }) {
                 </a>
             </Link>
 
-            <Link href={`/${post.username}/${post.slug}`}>
+            <Link href={`/${post.username}/${post.slug}`} passHref>
                 <h2>
                     <a>By @{post.title}</a>
                 </h2>
